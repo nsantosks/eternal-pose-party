@@ -1,0 +1,113 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7e6c4; /* Color pergamino/arena */
+    color: #3d342c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+header h1 {
+    color: #a0522d; /* Marrón tierra */
+    text-shadow: 2px 2px #fff;
+}
+
+/* --- Estructura de Pantallas --- */
+.screen {
+    background-color: #ffffff;
+    border: 5px solid #a0522d; /* Borde de madera */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: none; /* Ocultamos todas por defecto */
+}
+
+.screen.active {
+    display: block; /* Solo mostramos la activa */
+}
+
+/* --- Menú de Configuración --- */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #a0522d;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #d14900; /* Color naranja/rojo pirata */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #a03800;
+}
+
+/* --- Pantalla del Eternal Pose (Brújula) --- */
+#compass-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+#compass-base {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 15px solid #a0522d; /* Borde grueso tipo latón/madera */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#pointer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform-origin: center center; /* El punto de rotación es el centro */
+    
+    /* Dibujar la aguja: Dos triángulos para la forma de flecha */
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 150px solid #d14900; /* La punta Naranja/Roja */
+    
+    /* Centrar el punto de rotación */
+    transform: translate(-50%, -100%) rotate(0deg); 
+    transition: transform 0.5s ease-out; /* Animación de rotación suave */
+}
+
+/* Asegurar que la punta esté exactamente en el centro */
+#pointer::after {
+    content: '';
+    position: absolute;
+    top: 150px; /* Al final de la punta */
+    left: -15px; /* Ajuste para centrar el círculo de origen */
+    width: 30px;
+    height: 30px;
+    background-color: #3d342c; /* Centro oscuro */
+    border-radius: 50%;
+}

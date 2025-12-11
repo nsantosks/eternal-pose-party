@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Pose de Cumpleaños</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <header>
+        <h1>🧭 Eternal Pose</h1>
+    </header>
+
+    <div id="config-menu" class="screen active">
+        <h2>Fijar Destino (Log Pose)</h2>
+        <div class="input-group">
+            <label for="latitud">Latitud del Destino:</label>
+            <input type="number" id="latitud" placeholder="Ej: 40.7128">
+        </div>
+        <div class="input-group">
+            <label for="longitud">Longitud del Destino:</label>
+            <input type="number" id="longitud" placeholder="Ej: -74.0060">
+        </div>
+        <button id="set-log-btn">Fijar Destino (¡Zarpar!)</button>
+    </div>
+
+    <div id="eternal-pose-screen" class="screen">
+        <h2 id="destination-name">¡Ruta a Raftel de Cumpleaños!</h2>
+        <div id="compass-container">
+            <div id="compass-base">
+                <div id="pointer"></div>
+            </div>
+        </div>
+        <p id="distance-info">Cargando ubicación...</p>
+        <button id="reset-log-btn">Cambiar Log</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
